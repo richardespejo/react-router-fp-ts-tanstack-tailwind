@@ -9,6 +9,10 @@ export default [
         layout('layouts/auth-layouts.tsx',[
             route('login', 'routes/auth/login-page.tsx'),
             route('register', 'routes/auth/register-page.tsx'),
+            route('testing', 'routes/auth/testing-page.tsx'),
+            route('testing-args/:id/:name/:age', 'routes/auth/testing-args-page.tsx'),
+
+            route('logout', 'auth/actions/logout.actions.ts')
         ]),
     ]),
 
@@ -16,7 +20,7 @@ export default [
     ...prefix('/chat', [
         layout('layouts/chat-layouts.tsx' , [
             index('routes/chat/no-chat-selected-page.tsx'),
-            route('ABC', 'routes/chat/client-chat-page.tsx')
+            route('client/:id', 'routes/chat/client-chat-page.tsx')
         ])
 
     ])
