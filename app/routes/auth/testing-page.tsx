@@ -53,7 +53,7 @@ export default function TestingPage({
 
   return (
     <div>
-      <h1>Welcome to My Route with Props!</h1>
+      <h1 className="font-bold text-2xl">Testing Page</h1>
       <p>Loader Data: {JSON.stringify(loaderData)}</p>
       <p>Action Data: {JSON.stringify(actionData)}</p>
       <p>Route Parameters: {JSON.stringify(params)}</p>

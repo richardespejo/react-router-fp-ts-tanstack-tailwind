@@ -7,6 +7,7 @@ import { data, Form, Link, redirect, useNavigate } from 'react-router';
 import { commitSession, getSession } from '~/sessions.server';
 import type { Route } from './+types/login-page';
 import { useEffect } from 'react';
+import { loginUser } from '~/fake/fake-data';
 
 
 export async function loader({request}: Route.LoaderArgs){
@@ -49,8 +50,11 @@ export async function action({ request}: Route.ActionArgs) {
     })
   }
 
-  session.set('userId', 'UI-12345');
-  session.set('token', 'token-1234567890');
+  const user = await loginUser();
+
+  session.set('userId', user.id);
+  session.set('token', user.token);
+  session.set('name', user.name);
 
   return redirect('/chat',{
     headers: {
